@@ -15,6 +15,9 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Chi siamo</a>
             </li>
             <li class="nav-item">
