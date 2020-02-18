@@ -18,9 +18,8 @@
     </head>
     <body>
         <div id="app">
-            @include('layouts.partials.public-navbar')
-
             <main class="py-4">
+                @include('layouts.partials.public-navbar')
                 @yield('content')
             </main>
         </div>
