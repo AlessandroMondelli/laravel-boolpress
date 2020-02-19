@@ -21,9 +21,9 @@
                     <p class="card-text">Slug: {{ $post->slug }}</p>
                     <a href="{{ route('admin.posts.show',['post'=>$post->id]) }}" class="btn btn-primary">Dettagli</a>
                     <a href="{{ route('admin.posts.edit',['post'=>$post->id]) }}" class="btn btn-warning">Modifica</a>
-                    <form class="" action="#" method="post">
-                        {{-- @csrf
-                        @method('DELETE') --}}
+                    <form class="" action="{{ route('admin.posts.destroy',['post'=>$post->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
                         <input type="submit" class="btn btn-danger" value="Elimina">
                     </form>
                   </div>
