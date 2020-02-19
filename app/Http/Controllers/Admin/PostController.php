@@ -86,7 +86,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit',['post' => $post]);
     }
 
     /**
@@ -98,7 +98,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $form_data = $request->all(); //Prendo tutti i nuovi dati dal form
+        $post->update($form_data); //Aggiorno dati
+        return redirect()->route('admin.posts.index'); //Indirizzo all'index
     }
 
     /**
