@@ -1,0 +1,16 @@
+.pub-navbar {
+    height: 80px;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 3;
+
+    a {
+        color: white;
+        font-size: 18px;
+        margin-right: 15px;
+    }
+}
