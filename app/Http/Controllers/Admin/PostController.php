@@ -40,12 +40,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all(); //Prendo tutti i nuovi dati dal form
-
+        // dd($form_data);
         $cover_image = $form_data['cover_image']; //Prendo dati dell'immagine
-        $path_image = Storage::put('uploads',$cover_image); //Prendo PATH dell'immagine dopo averlo preparato per l'upload
-
+        // dd($cover_image);
+        $image_path = Storage::put('uploads',$cover_image); //Prendo PATH dell'immagine dopo averlo preparato per l'upload
+        // dd($image_path);
         $post = new Post(); //Creo nuovo elemento
-        $post->cover_image = $path_image; //Assegno path dell'immagine
+        $post->cover_image = $image_path; //Assegno path dell'immagine
+
         $post->fill($form_data); //Riempio dati per db
 
         $original_slug = Str::slug($form_data['title']); //Creo slug dal titolo

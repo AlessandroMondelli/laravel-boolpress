@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{ route('admin.posts.store') }}" method="post">
+                <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Titolo Post</label>
@@ -28,10 +28,10 @@
                     </div>
                     <div class="form-group">
                         <label for="cover_image">Inserisci un'immagine</label>
-                        <input type="file" name="cover_image" class="form-control-file"></input>
+                        <input type="file" name="cover_image" class="form-control-file">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="Invia" value="Crea">
+                        <input type="submit" class="btn btn-primary" value="Crea">
                     </div>
                 </form>
             </div>

@@ -10947,3 +10947,7 @@ main #home-pub-video #center-title h1 {
   padding: 100px;
 }
 
+.cover_img {
+  max-width: 100%;
+}
+
