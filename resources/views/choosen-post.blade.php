@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('layouts.public')
 
 @section('content')
-    <div class="container">
+    <div class="container cont-posts">
         <div class="row">
-            <div class="col-lg-12 videogame-card">
+            <div class="col-lg-12">
                 <h1>Visualizzazione Post</h1>
             </div>
         </div>

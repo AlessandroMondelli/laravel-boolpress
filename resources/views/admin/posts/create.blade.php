@@ -15,16 +15,20 @@
                 <form action="{{ route('admin.posts.store') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="tipo">Titolo Post</label>
+                        <label for="title">Titolo Post</label>
                         <input type="text" name="title" class="form-control" placeholder="Inserire titolo"></input>
                     </div>
                     <div class="form-group">
-                        <label for="tipo">Autore</label>
+                        <label for="author">Autore</label>
                         <input type="text" name="author" class="form-control" placeholder="Inserire autore"></input>
                     </div>
                     <div class="form-group">
-                        <label for="tipo">A cosa stai pensando?</label>
+                        <label for="content">A cosa stai pensando?</label>
                         <textarea name="content" class="form-control"  rows="4" cols="50" placeholder="Scrivi qualcosa..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cover_image">Inserisci un'immagine</label>
+                        <input type="file" name="cover_image" class="form-control-file"></input>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" name="Invia" value="Crea">

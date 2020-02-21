@@ -1,9 +1,9 @@
 @extends('layouts.public')
 
 @section('content')
-    <div class="container" id="cont-posts">
+    <div class="container cont-posts">
         <div class="row">
-            <div class="col-lg-6 videogame-card">
+            <div class="col-lg-6">
                 <h1>Lista posts pubblica</h1>
             </div>
             <div class="col-lg-6">
