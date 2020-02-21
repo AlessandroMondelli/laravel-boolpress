@@ -10886,7 +10886,6 @@ a.text-dark:focus {
 
 .pub-navbar {
   height: 80px;
-  color: white;
   position: absolute;
   top: 0;
   left: 0;
@@ -10896,9 +10895,23 @@ a.text-dark:focus {
 }
 
 .pub-navbar a {
-  color: white;
+  color: #B2B2B2;
   font-size: 18px;
   margin-right: 15px;
+  transition: 0.3s;
+}
+
+.pub-navbar a:hover {
+  color: black;
+}
+
+.pub-navbar .logout {
+  color: #B2B2B2;
+  transition: 0.3s;
+}
+
+.pub-navbar .logout:hover {
+  color: black;
 }
 
 main #home-pub-video {
@@ -10913,8 +10926,8 @@ main #home-pub-video #myVideo {
   min-width: 100%;
   min-height: 100%;
   z-index: 2;
-  -webkit-filter: opacity(80%) grayscale(10%);
-          filter: opacity(80%) grayscale(10%);
+  -webkit-filter: opacity(95%) grayscale(5%);
+          filter: opacity(95%) grayscale(5%);
 }
 
 main #home-pub-video #center-title {
@@ -10922,9 +10935,15 @@ main #home-pub-video #center-title {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 4;
 }
 
 main #home-pub-video #center-title h1 {
   font-size: 52px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#cont-posts {
+  padding: 100px;
 }
 

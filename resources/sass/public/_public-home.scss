@@ -10,7 +10,7 @@ main {
             min-width: 100%;
             min-height: 100%;
             z-index: 2;
-            filter:opacity(80%) grayscale(10%);
+            filter:opacity(95%) grayscale(5%);
         }
 
         #center-title {
@@ -18,9 +18,11 @@ main {
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            z-index: 4;
 
             h1 {
                 font-size: 52px;
+                color: rgba(255,255,255,0.7);
             }
         }
     }
