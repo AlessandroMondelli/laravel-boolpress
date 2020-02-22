@@ -107,6 +107,13 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $form_data = $request->all(); //Prendo tutti i nuovi dati dal form
+
+        if (!empty($form_data['cover_image'])) { //Se il cmpo dell'immagine non è vuoto..
+            $cover_image = $form_data['cover_image']; //Prendo dati dell'immagine
+            $image_path = Storage::put('uploads',$cover_image); //Prendo PATH dell'immagine dopo averlo preparato per l'upload
+            $post->cover_image = $image_path; //Assegno path dell'immagine
+        }
+
         $post->update($form_data); //Aggiorno dati
         return redirect()->route('admin.posts.index'); //Indirizzo all'index
     }

@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="row">
-                <form action="{{ route('admin.posts.update',['post'=>$post->id]) }}" method="post">
+                <form action="{{ route('admin.posts.update',['post'=>$post->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -28,7 +28,11 @@
                         <textarea name="content" class="form-control" rows="4" cols="50" placeholder="Scrivi qualcosa...">{{ $post->content }}</textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" name="Invia" value="Modifica">
+                        <label for="cover_image">Inserisci un'immagine</label>
+                        <input type="file" name="cover_image" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Modifica">
                     </div>
                 </form>
             </div>
