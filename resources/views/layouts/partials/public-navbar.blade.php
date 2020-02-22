@@ -14,6 +14,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('contatti.show') }}">Contatti</a>
+            </li>
             @guest
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
