@@ -19,6 +19,10 @@
                         <input type="text" name="title" class="form-control" placeholder="Inserire titolo"></input>
                     </div>
                     <div class="form-group">
+                        <label for="title">Categoria</label>
+                        <select type="select" name="category" class="form-group" placeholder="Inserire categoria"></select>
+                    </div>
+                    <div class="form-group">
                         <label for="author">Autore</label>
                         <input type="text" name="author" class="form-control" placeholder="Inserire autore"></input>
                     </div>
