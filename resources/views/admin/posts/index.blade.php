@@ -17,6 +17,9 @@
                   <div class="card-body">
                     <h2><p class="card-title">{{ $post->title }}</p></h2>
                     <p class="card-text">{{ $post->content }}</p>
+                    @if (!empty($post->category))
+                        <p class="card-text">Categoria: {{ $post->category->name }}</p>
+                    @endif
                     <p class="card-text">Autore: {{ $post->author }}</p>
                     <p class="card-text">Slug: {{ $post->slug }}</p>
                     <a href="{{ route('admin.posts.show',['post'=>$post->id]) }}" class="btn btn-primary">Dettagli</a>

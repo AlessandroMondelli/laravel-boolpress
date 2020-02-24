@@ -18,10 +18,12 @@
                         <label for="title">Titolo Post</label>
                         <input type="text" name="title" class="form-control" placeholder="Inserire titolo"></input>
                     </div>
-                    <div class="form-group">
-                        <label for="title">Categoria</label>
-                        <select type="select" name="category" class="form-group" placeholder="Inserire categoria"></select>
-                    </div>
+                    <select name="category_id" class="form-group">
+                        <option value="">Seleziona categoria</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
                     <div class="form-group">
                         <label for="author">Autore</label>
                         <input type="text" name="author" class="form-control" placeholder="Inserire autore"></input>

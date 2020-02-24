@@ -19,6 +19,14 @@
                         <label for="tipo">Titolo Post</label>
                         <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Inserire titolo"></input>
                     </div>
+                    <select name="category_id" class="form-group">
+                        <option value="">Nessuna categoria</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ $post->category && ($post->category->id == $category->id) ? 'selected' : ''}}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
                     <div class="form-group">
                         <label for="tipo">Autore</label>
                         <input type="text" name="author" value="{{ $post->author }}" class="form-control" placeholder="Inserire autore"></input>
