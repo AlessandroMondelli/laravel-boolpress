@@ -23,7 +23,7 @@
                     @if (($post->tags)->isNotEmpty())
                         <p class="card-text">Tags:
                             @foreach ($post->tags as $tag)
-                                {{ $tag->name }}{{ $loop->last ? '' : ',' }}
+                                <a href="{{ route('blog.tag',['slug'=>$tag->slug]) }}">{{ $tag->name }}{{ $loop->last ? '' : ',' }}</a>
                             @endforeach
                         </p>
                     @endif
