@@ -20,6 +20,13 @@
                     <p class="card-text">Autore: {{ $post->author }}</p>
                     <p class="card-text">Creato: {{ $post->created_at }}</p>
                     <p class="card-text">Aggiornato: {{ $post->updated_at }}</p>
+                    @if (($post->tags)->isNotEmpty())
+                        <p class="card-text">Tags:
+                            @foreach ($post->tags as $tag)
+                                {{ $tag->name }}{{ $loop->last ? '' : ',' }}
+                            @endforeach
+                        </p>
+                    @endif
                   </div>
                 </div>
             </div>
