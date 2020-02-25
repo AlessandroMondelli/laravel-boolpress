@@ -76,6 +76,8 @@ class PostController extends Controller
         $post->slug = $temp_slug; //Aggiungo Slug
         $post->save(); //Salvo nel db
 
+        $post->tags()->sync($form_data['tag_id']);
+
         return redirect()->route('admin.posts.index');
     }
 
