@@ -22,6 +22,13 @@
                     @endif
                     <p class="card-text">Autore: {{ $post->author }}</p>
                     <p class="card-text">Slug: {{ $post->slug }}</p>
+                    @if (($post->tags)->isNotEmpty())
+                        <p class="card-text">Tags:
+                            @foreach ($post->tags as $tag)
+                                {{ $tag->name }}{{ $loop->last ? '' : ',' }}
+                            @endforeach
+                        </p>
+                    @endif
                     <a href="{{ route('admin.posts.show',['post'=>$post->id]) }}" class="btn btn-primary">Dettagli</a>
                     <a href="{{ route('admin.posts.edit',['post'=>$post->id]) }}" class="btn btn-warning">Modifica</a>
                     <form class="" action="{{ route('admin.posts.destroy',['post'=>$post->id]) }}" method="post">

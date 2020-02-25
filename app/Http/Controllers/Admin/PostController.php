@@ -76,7 +76,9 @@ class PostController extends Controller
         $post->slug = $temp_slug; //Aggiungo Slug
         $post->save(); //Salvo nel db
 
-        $post->tags()->sync($form_data['tag_id']);
+        if (!empty($dati['tag_id'])) {
+            $post->tags()->sync($form_data['tag_id']); //Sincronizzo dati con database anche per i tags
+        }
 
         return redirect()->route('admin.posts.index');
     }
@@ -100,8 +102,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        $categories = Category::all(); //prendo categorie per passarle alla create
-        return view('admin.posts.edit',['post' => $post, 'categories' => $categories]);
+        $categories = Category::all(); //prendo categorie per passarle alla Edit
+        $tags = Tag::all(); //prendo tags per passarli alla Edit
+        return view('admin.posts.edit',['post' => $post, 'categories' => $categories, 'tags' => $tags]);
     }
 
     /**
@@ -122,6 +125,12 @@ class PostController extends Controller
         }
 
         $post->update($form_data); //Aggiorno dati
+
+        if (!empty($dati['tag_id'])) {
+            $post->tags()->sync($form_data['tag_id']); //Sincronizzo dati con database anche per i tags
+        }
+
+
         return redirect()->route('admin.posts.index'); //Indirizzo all'index
     }
 
@@ -133,6 +142,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post_image = $post->cover_image; //Prendo Immagine
+        if (!empty($post_image)) {
+            Storage::delete($post_image); //Elimino immagine solo se presente
+        }
+
+        if ($post->tags->isNotEmpty()) {
+            $post->tags()->sync([]); //Elimino tags se prensenti
+        }
+
         $post->delete(); //Elimino dati
         return redirect()->route('admin.posts.index'); //Indirizzo all'index
     }

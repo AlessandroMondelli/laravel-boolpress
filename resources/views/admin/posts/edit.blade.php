@@ -39,6 +39,15 @@
                         <label for="cover_image">Inserisci un'immagine</label>
                         <input type="file" name="cover_image" class="form-control-file">
                     </div>
+                    @if ($tags->count() > 0)
+                        <p>Seleziona tag:</p>
+                        @foreach ($tags as $tag)
+                            <label>
+                                <input type="checkbox" name="tag_id[]" value="{{ $tag->id }}" {{ ($post->tags)->contains($tag) ? 'checked' : '' }}>
+                                {{ $tag->name }}
+                            </label>
+                        @endforeach
+                    @endif
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Modifica">
                     </div>
