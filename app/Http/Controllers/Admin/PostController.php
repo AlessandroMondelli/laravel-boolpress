@@ -43,6 +43,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        //Validazione dati form
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'content' => 'required',
+            'cover_image' => 'image|max:30000' //Max -> grandezza foto in kb
+        ]);
+
         $form_data = $request->all(); //Prendo tutti i nuovi dati dal form
         // dd($form_data);
         $cover_image = $form_data['cover_image']; //Prendo dati dell'immagine
@@ -116,6 +124,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        //Validazione dati form
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'content' => 'required',
+            'cover_image' => 'image|max:30000' //Max -> grandezza foto in kb
+        ]);
+        
         $form_data = $request->all(); //Prendo tutti i nuovi dati dal form
 
         if (!empty($form_data['cover_image'])) { //Se il cmpo dell'immagine non è vuoto..
@@ -128,6 +144,8 @@ class PostController extends Controller
 
         if (!empty($dati['tag_id'])) {
             $post->tags()->sync($form_data['tag_id']); //Sincronizzo dati con database anche per i tags
+        } else {
+            $post->tags()->sync([]); //Se non vengono messe spunte, svuoto tags
         }
 
 
