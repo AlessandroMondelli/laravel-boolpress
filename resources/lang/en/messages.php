@@ -8,7 +8,8 @@ return [
     'button_send' => 'Send',
     'name_placeholder' => 'Insert name',
     'email_placeholder' => 'Insert email',
-    'content_placeholder' => 'Write something...'
+    'content_placeholder' => 'Write something...',
+    'thanks' => 'Thanks for contacting us'
 ]
 
  ?>

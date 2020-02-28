@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('contatti.show') }}">Contatti</a>
+                <a class="nav-link" href="{{ route('contatti.show') }}">{{ __('navbar.contacts_nav') }}</a>
             </li>
             @guest
                 <li class="nav-item">
@@ -41,6 +41,15 @@
                     </div>
                 </li>
             @endauth
+            </ul>
+            <ul class="navbar-nav">
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>
+                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>
